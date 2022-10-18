@@ -1,0 +1,12 @@
+Remote file monitoring system
+
+A web application which logs changes done on a file which is situated at a remote server.
+
+Must have:
+1. File should be located remotely.
+Changes in the file should be instantly reflected on the client page.
+2. Client Page should load the last 15 lines from the file. It should be able to append or delete lines on a real time basis.
+
+Good to have:
+1.Different filters on the client page.
+2.Prettified client page to consume data.

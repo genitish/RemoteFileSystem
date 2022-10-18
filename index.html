@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Remote File System</title>
+</head>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+   const socket = io();
+   socket.on("key", function (data) {
+      let d = document.getElementById("data");
+      d.innerHTML = "";
+      data = data.split("\n");
+      let orderedList = document.createElement("ol");
+      for (let i = 0; i < data.length - 1; i++) {
+         const li = document.createElement("li");
+         li.innerHTML = data[i];
+         orderedList.appendChild(li);
+      }
+      d.appendChild(orderedList)
+   })
+</script>
+
+<body>
+   <div id="container" style="display:flex; justify-content: center; align-items: center; flex-direction: column;">
+      <div id="heading" style="margin: 20px; font-size: xx-large;">
+         <h2>Last Fifteen lines of file</h2>
+      </div>
+      <div id="data" style="border: 1px solid black; 
+         background-color: antiquewhite; 
+         padding: 10px; font-size: larger;
+         min-width: 500px">
+      </div>
+   </div>
+</body>
+
+</html>
